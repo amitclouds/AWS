@@ -17,6 +17,4 @@
 # limitations under the License.
 #
 
-apache_module "dir" do 
-  conf true
-end
+apache_module "dir"

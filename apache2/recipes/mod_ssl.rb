@@ -17,26 +17,4 @@
 # limitations under the License.
 #
 
-if platform_family?('rhel')
-  package 'mod_ssl' do
-    action :install
-    notifies :run, "execute[generate-module-list]", :immediately
-  end
-
-  file "#{node[:apache][:dir]}/conf.d/ssl.conf" do
-    action :delete
-    backup false 
-  end
-end
-
-template "#{node[:apache][:dir]}/ports.conf" do
-  source 'ports.conf.erb'
-  group 'root'
-  owner 'root'
-  mode 0644
-  notifies :restart, "service[apache2]"
-end
-
-apache_module 'ssl' do
-  conf true
-end
+apache_module "ssl"
