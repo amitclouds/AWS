@@ -17,8 +17,4 @@
 # limitations under the License.
 #
 
-if platform_family?('rhel')
-  apache_module 'log_config'
-else
-  include_recipe 'apache2'
-end
+apache_module "log_config"

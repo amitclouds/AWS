@@ -17,10 +17,6 @@
 # limitations under the License.
 #
 
-if platform_family?('debian')
-  package 'libapache2-mod-python'
-elsif platform_family?('rhel')
-  package 'mod_python'
-end
+package "libapache2-mod-python"
 
-apache_module 'python'
+apache_module "python"

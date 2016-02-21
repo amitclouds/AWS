@@ -1,5 +1,5 @@
 #This file generated via template by Chef.
-<% node[:apache][:listen_ports].each do |port| -%>
+<% @apache_listen_ports.each do |port| -%>
 Listen <%= port %>
 NameVirtualHost *:<%= port %>
 
