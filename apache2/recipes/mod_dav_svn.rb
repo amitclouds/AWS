@@ -17,4 +17,11 @@
 # limitations under the License.
 #
 
-apache_module "dav_svn"
+case node[:platform_family]
+when 'rhel'
+  package 'mod_dav_svn'
+when 'debian'
+  package 'libapache2-svn'
+end
+
+apache_module 'dav_svn'
