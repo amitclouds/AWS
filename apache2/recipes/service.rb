@@ -1,5 +1,9 @@
 service 'apache2' do
-  
+  service_name value_for_platform_family(
+    'rhel' => 'httpd',
+    'debian' => 'apache2'
+  )
+
   # If restarted/reloaded too quickly httpd has a habit of failing.
   # This may happen with multiple recipes notifying apache to restart - like
   # during the initial bootstrap.
